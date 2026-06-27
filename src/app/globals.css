@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-pitch-black: #0F172A;
+  --color-slate-card: #1E293B;
+  --color-boundary-line: #334155;
+  --color-turf-green: #22C55E;
+  --color-turf-green-dark: #16A34A;
+  --color-floodlight-blue: #2563EB;
+  --color-scoreboard-amber: #F59E0B;
+  --color-chalk-white: #F8FAFC;
+
+  --font-display: var(--font-display), sans-serif;
+  --font-body: var(--font-body), sans-serif;
+  --font-mono: var(--font-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --pitch-black: #0F172A;
+  --slate-card: #1E293B;
+  --boundary-line: #334155;
+  --turf-green: #22C55E;
+  --turf-green-dark: #16A34A;
+  --floodlight-blue: #2563EB;
+  --scoreboard-amber: #F59E0B;
+  --chalk-white: #F8FAFC;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--pitch-black);
+  color: var(--chalk-white);
+  font-family: var(--font-body), sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--turf-green);
+  outline-offset: 2px;
+}
+
+/* Hide scrollbar for clean modal handling if needed */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
