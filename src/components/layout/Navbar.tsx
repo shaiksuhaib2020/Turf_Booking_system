@@ -13,11 +13,18 @@ export default function Navbar() {
   const pathname = usePathname()
 
   React.useEffect(() => {
+    let rafId: number
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40)
+      cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 40)
+      })
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      cancelAnimationFrame(rafId)
+    }
   }, [])
 
   const navItems = [
@@ -29,7 +36,7 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 will-change-transform",
         scrolled ? "bg-pitch-black/80 backdrop-blur-md border-b border-boundary-line" : "bg-transparent"
       )}
     >

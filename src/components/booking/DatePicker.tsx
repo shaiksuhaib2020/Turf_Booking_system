@@ -63,7 +63,7 @@ export default function DatePicker({ selectedDate, onSelect }: DatePickerProps) 
   const weekDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
 
   return (
-    <div className="bg-pitch-black border border-boundary-line/50 p-4 rounded-xl w-full max-w-sm select-none">
+    <div className="bg-pitch-black border border-boundary-line/50 p-4 rounded-xl w-full max-w-sm">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-chalk-white font-semibold">
           {currentMonth.toLocaleString("default", { month: "long" })} {currentMonth.getFullYear()}
@@ -92,7 +92,7 @@ export default function DatePicker({ selectedDate, onSelect }: DatePickerProps) 
           <div key={day} className="text-xs font-semibold text-boundary-line">{day}</div>
         ))}
       </div>
-      <div className="grid grid-cols-7 gap-1">
+      <div className="grid grid-cols-7 gap-1 select-none">
         {days}
       </div>
     </div>

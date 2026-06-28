@@ -16,7 +16,7 @@ export default function SummaryCard({ selectedDate, selectedSlotId, isFormValid,
   const selectedSlot = slots.find(s => s.id === selectedSlotId)
   
   return (
-    <Card className="sticky top-28 border border-boundary-line/50">
+    <Card className="sticky top-28 border border-boundary-line/50 shadow-none will-change-transform">
       <CardHeader className="bg-slate-card/50 border-b border-boundary-line/50">
         <CardTitle className="text-xl text-chalk-white">Booking Summary</CardTitle>
       </CardHeader>
